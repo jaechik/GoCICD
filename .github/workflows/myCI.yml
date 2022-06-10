@@ -31,14 +31,14 @@ jobs: # job to execute?
         repository: lowkh2/GoSchoolRemoteExample
         token: ${{ secrets.GO_SECRET }}
         path: remote
+    
     - name: Check remote files
       run: |
         cd remote
         ls
         cat myText.txt
         cd ..
-        
-      
+         
     - name: Check File System
       run: ls
   
@@ -58,6 +58,7 @@ jobs: # job to execute?
        files: tests.xml
        
     - if: ${{ failure() }}
+      uses: nashmaniac/create-issue-action@v1.1
       name: Create Issues Notifications
       with:
         title: Build Failed
