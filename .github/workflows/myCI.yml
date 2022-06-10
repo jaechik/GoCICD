@@ -47,7 +47,7 @@ jobs: # job to execute?
         go mod init calc # for go mod. if we use go build, it will do the same for the 3 lines.
         go mod tidy
         go get github.com/franela/goblin
-        go install github.com/tebeka/go2xunit
+        go install github.com/tebeka/go2xunit@latest
         go test -v
         go test -v | go2xunit > tests.xml
         
